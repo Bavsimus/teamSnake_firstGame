@@ -11,7 +11,7 @@ public class mechanics : MonoBehaviour
     private SpriteRenderer rbSprite;
     private Animator animator;
     private BoxCollider2D bcol;
-    public bool frogAttState = false;
+    public bool frogAttState = true;
     private enum anim { Idle, Jump, Run, Fall, Crouch };
     [SerializeField] private LayerMask jumpRange;
 
@@ -29,7 +29,7 @@ public class mechanics : MonoBehaviour
     void Update()
     {
         //attack();
-        //crouch();
+        crouch();
         run();
         animations();
     }
@@ -69,14 +69,14 @@ public class mechanics : MonoBehaviour
         if (Input.GetButtonDown("Jump") && gcheck())
         {
             rb.velocity = new Vector2(rb.velocity.x, jump);
-            //if (frogAttState & Input.GetKey("c"))
-            //{
-            //    rb.velocity = new Vector2(rb.velocity.x, jump * 2);
-            //}
-            //else
-            //{
-            //    rb.velocity = new Vector2(rb.velocity.x, jump);
-            //}
+            if (frogAttState & Input.GetKey("c"))
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jump * 2);
+            }
+            else
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jump);
+            }
         }
     }
 
