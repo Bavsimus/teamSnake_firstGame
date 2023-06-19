@@ -123,7 +123,14 @@ public class mechanics : MonoBehaviour
             //state = anim.Jump;
             if (superJump == true)
             {
-                state = anim.SuperJump;
+                if (Input.GetKey("a") || Input.GetKey("d"))
+                {
+                    state = anim.Run;//Swap with new animation for horizontal superjump
+                }
+                else
+                {
+                    state = anim.SuperJump;
+                }
             }
             else
             {
