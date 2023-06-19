@@ -11,8 +11,8 @@ public class mechanics : MonoBehaviour
     private SpriteRenderer rbSprite;
     private Animator animator;
     private BoxCollider2D bcol;
-    public bool frogAttState = true;
-    private enum anim { Idle, Jump, Run, Fall, Crouch };
+    private static bool superJump = true;
+    private enum anim { Idle, Jump, Run, Fall, Crouch, SuperJump };
     [SerializeField] private LayerMask jumpRange;
 
 
@@ -28,6 +28,15 @@ public class mechanics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (superJump == true)
+        {
+            Debug.Log("true");
+        }
+        else
+        {
+            Debug.Log("false");
+        }
+        
         //attack();
         crouch();
         run();
@@ -45,13 +54,13 @@ public class mechanics : MonoBehaviour
     {
         if (Input.GetKeyDown("c") && gcheck())
         {
-            bcol.offset = new Vector2(-0.07081842f, -0.56f);
-            bcol.size = new Vector2(1.013126f, 0.8168049f);
+            bcol.offset = new Vector2(-0.001146927f, -0.2f );
+            bcol.size = new Vector2(0.4424741f, 0.56f);
         }
         else if (Input.GetKeyUp("c") && gcheck())
         {
-            bcol.offset = new Vector2(-0.07081842f, -0.28f);
-            bcol.size = new Vector2(1.013126f, 1.34f);
+            bcol.offset = new Vector2(-0.001146927f, -0.02272889f);
+            bcol.size = new Vector2(0.4424741f, 0.9228298f);
         }
     }
     private void run()
@@ -68,13 +77,14 @@ public class mechanics : MonoBehaviour
         }
         if (Input.GetButtonDown("Jump") && gcheck())
         {
-            rb.velocity = new Vector2(rb.velocity.x, jump);
-            if (frogAttState & Input.GetKey("c"))
+            if (Input.GetKey("c"))
             {
+                superJump = true;
                 rb.velocity = new Vector2(rb.velocity.x, jump * 2);
             }
             else
             {
+                superJump = false;
                 rb.velocity = new Vector2(rb.velocity.x, jump);
             }
         }
@@ -110,7 +120,15 @@ public class mechanics : MonoBehaviour
         //jump
         if (rb.velocity.y > 0.1f)
         {
-            state = anim.Jump;
+            //state = anim.Jump;
+            if (superJump == true)
+            {
+                state = anim.SuperJump;
+            }
+            else
+            {
+                state = anim.Jump;
+            }
         }
         //fall
         else if (rb.velocity.y < -0.1f)
