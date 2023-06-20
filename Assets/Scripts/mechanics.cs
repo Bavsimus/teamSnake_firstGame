@@ -54,13 +54,13 @@ public class mechanics : MonoBehaviour
     {
         if (Input.GetKeyDown("c") && gcheck())
         {
-            bcol.offset = new Vector2(0.002148628f, -0.17f);
+            bcol.offset = new Vector2(0.002148628f, -0.12f);
             bcol.size = new Vector2(0.8932524f, 1.647364f);
         }
         else if (Input.GetKeyUp("c") && gcheck())
         {
-            bcol.offset = new Vector2(0.002148628f, -0.06326014f);
-            bcol.size = new Vector2(0.8932524f, 1.88348f);
+            bcol.offset = new Vector2(0.002148628f, -0.05026014f);
+            bcol.size = new Vector2(0.8932524f, 1.80348f);
         }
     }
     private void run()
