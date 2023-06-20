@@ -12,7 +12,7 @@ public class mechanics : MonoBehaviour
     private Animator animator;
     private BoxCollider2D bcol;
     private static bool superJump = true;
-    private enum anim { Idle, Jump, Run, Fall, Crouch, SuperJump };
+    private enum anim { Idle, Jump, Run, Fall, Crouch, SuperJump, SuperJumpV};
     [SerializeField] private LayerMask jumpRange;
 
 
@@ -54,13 +54,13 @@ public class mechanics : MonoBehaviour
     {
         if (Input.GetKeyDown("c") && gcheck())
         {
-            bcol.offset = new Vector2(-0.001146927f, -0.2f );
-            bcol.size = new Vector2(0.4424741f, 0.56f);
+            bcol.offset = new Vector2(0.002148628f, -0.17f);
+            bcol.size = new Vector2(0.8932524f, 1.647364f);
         }
         else if (Input.GetKeyUp("c") && gcheck())
         {
-            bcol.offset = new Vector2(-0.001146927f, -0.02272889f);
-            bcol.size = new Vector2(0.4424741f, 0.9228298f);
+            bcol.offset = new Vector2(0.002148628f, -0.06326014f);
+            bcol.size = new Vector2(0.8932524f, 1.88348f);
         }
     }
     private void run()
@@ -125,11 +125,11 @@ public class mechanics : MonoBehaviour
             {
                 if (Input.GetKey("a") || Input.GetKey("d"))
                 {
-                    state = anim.Run;//Swap with new animation for horizontal superjump
+                    state = anim.SuperJump;//Swap with new animation for horizontal superjump
                 }
                 else
                 {
-                    state = anim.SuperJump;
+                    state = anim.SuperJumpV;
                 }
             }
             else
