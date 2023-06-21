@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7a9d3496de28d644d9a7f32905c8ea82
+guid: 4528fc6111b068246a13f28c2db0868e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: death_Player_apollo_0
+      name: attack_Player 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 366dc1e7c20a6d14ba19fa3cf07a4da6
-      internalID: -932820293
+      spriteID: 63e99a81e40e0d4499c7881b237bf82d
+      internalID: 891539495
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death_Player_apollo_1
+      name: attack_Player 1_1
       rect:
         serializedVersion: 2
         x: 32
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8dcc88687bb6e214aa55fa3f3d8980b2
-      internalID: -486854330
+      spriteID: 94bb13069aa8f4c41b534e6093ea8eb4
+      internalID: -512655360
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death_Player_apollo_2
+      name: attack_Player 1_2
       rect:
         serializedVersion: 2
         x: 64
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab5adda41bb421d4ebe9c903976da345
-      internalID: -329502468
+      spriteID: 8fcc01926a4d08043b33b5dfdc71c6f8
+      internalID: 2112893404
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death_Player_apollo_3
+      name: attack_Player 1_3
       rect:
         serializedVersion: 2
         x: 96
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b9c8708c9dd82c44892b78c8a0c9ed5
-      internalID: 1834138251
+      spriteID: 60e9656e5e51a3c42954eeda432da354
+      internalID: -2033878739
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death_Player_apollo_4
+      name: attack_Player 1_4
       rect:
         serializedVersion: 2
         x: 128
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea03fd28b30e0b441855a7a52df2a883
-      internalID: 1587481274
+      spriteID: 4e3a24f65c1a6ba4bb3c5413d046ca46
+      internalID: 1795380195
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death_Player_apollo_5
+      name: attack_Player 1_5
       rect:
         serializedVersion: 2
         x: 160
@@ -242,71 +242,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fb6d547baa1ffe42aa7d1284ac54beb
-      internalID: -761700749
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: death_Player_apollo_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3b61210ec62c87f4b84c265f285d46e9
-      internalID: 817246374
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: death_Player_apollo_7
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: de539fa664fc44c429395cad9552cfb8
-      internalID: -13119868
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: death_Player_apollo_8
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1ec32db1df4429d49b2df4a9e0efd72f
-      internalID: 564694747
+      spriteID: a39fc0d38180bd743aec71b2dc699fb2
+      internalID: -793885696
       vertices: []
       indices: 
       edges: []
@@ -322,15 +259,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      death_Player_apollo_0: -932820293
-      death_Player_apollo_1: -486854330
-      death_Player_apollo_2: -329502468
-      death_Player_apollo_3: 1834138251
-      death_Player_apollo_4: 1587481274
-      death_Player_apollo_5: -761700749
-      death_Player_apollo_6: 817246374
-      death_Player_apollo_7: -13119868
-      death_Player_apollo_8: 564694747
+      attack_Player 1_0: 891539495
+      attack_Player 1_1: -512655360
+      attack_Player 1_2: 2112893404
+      attack_Player 1_3: -2033878739
+      attack_Player 1_4: 1795380195
+      attack_Player 1_5: -793885696
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
