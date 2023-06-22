@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class mechanics : MonoBehaviour
 {
@@ -12,8 +14,9 @@ public class mechanics : MonoBehaviour
     private Animator animator;
     private BoxCollider2D bcol;
     private static bool superJump = true;
-    private enum anim { Idle, Jump, Run, Fall, Crouch, SuperJump, SuperJumpV};
+    private enum anim { Idle, Jump, Run, Fall, Crouch, SuperJump, SuperJumpV, Death};
     [SerializeField] private LayerMask jumpRange;
+    [SerializeField] private bool playerIsAlive = true;
 
 
     // Start is called before the first frame update
@@ -27,27 +30,34 @@ public class mechanics : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        if (superJump == true)
-        {
-            Debug.Log("true");
-        }
-        else
-        {
-            Debug.Log("false");
-        }
-        
-        //attack();
+    {   
+        attack();
         crouch();
         run();
         animations();
+        resetLevel();
+        if (Input.GetKeyDown("y"))
+        {
+            die();
+        }
     }
 
+    private void resetLevel()
+    {
+        if (Input.GetKey("r"))
+        {
+            Invoke("sceneLoad", 0.3f);
+        }
+    }
+    private void sceneLoad()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
     private void attack()
     {
         if (Input.GetKeyDown("q"))
         {
-
+            Debug.Log("You attacked.");
         }
     }
     private void crouch()
@@ -90,10 +100,31 @@ public class mechanics : MonoBehaviour
         }
     }
 
+    private void die() //not working
+    {
+        rb.bodyType = RigidbodyType2D.Static;
+        playerIsAlive = false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //if (collision.gameObject.CompareTag("Enemy"))
+        //{
+        //    die();
+        //}
+    }
+
     private void animations()
     {
         anim state;
-        if (Input.GetKeyDown("q"))
+
+        //die not working 
+        //if (playerIsAlive == false)
+        //{
+        //    state = anim.Death;
+        //}
+        //attack
+        if (Input.GetKeyUp("q"))
         {
             animator.SetBool("attack", true);
         }
@@ -125,7 +156,7 @@ public class mechanics : MonoBehaviour
             {
                 if (Input.GetKey("a") || Input.GetKey("d"))
                 {
-                    state = anim.SuperJump;//Swap with new animation for horizontal superjump
+                    state = anim.SuperJump;
                 }
                 else
                 {
