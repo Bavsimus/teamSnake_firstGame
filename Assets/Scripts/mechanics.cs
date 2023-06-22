@@ -17,6 +17,7 @@ public class mechanics : MonoBehaviour
     private enum anim { Idle, Jump, Run, Fall, Crouch, SuperJump, SuperJumpV, Death};
     [SerializeField] private LayerMask jumpRange;
     [SerializeField] private bool playerIsAlive = true;
+    anim state;
 
 
     // Start is called before the first frame update
@@ -36,7 +37,7 @@ public class mechanics : MonoBehaviour
         run();
         animations();
         resetLevel();
-        if (Input.GetKeyDown("y"))
+        if (Input.GetKey("y"))
         {
             die();
         }
@@ -102,8 +103,15 @@ public class mechanics : MonoBehaviour
 
     private void die() //not working
     {
-        rb.bodyType = RigidbodyType2D.Static;
+        //rb.bodyType = RigidbodyType2D.Static;
         playerIsAlive = false;
+        Debug.Log("You atasdasd.");
+        //die
+        if (Input.GetKey("y"))
+        {
+            state = anim.Death;
+            Debug.Log("You dead.");
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -116,13 +124,6 @@ public class mechanics : MonoBehaviour
 
     private void animations()
     {
-        anim state;
-
-        //die not working 
-        //if (playerIsAlive == false)
-        //{
-        //    state = anim.Death;
-        //}
         //attack
         if (Input.GetKeyUp("q"))
         {
