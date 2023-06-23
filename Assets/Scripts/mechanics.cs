@@ -101,25 +101,24 @@ public class mechanics : MonoBehaviour
         }
     }
 
-    private void die() //not working
+    private void die() 
     {
-        //rb.bodyType = RigidbodyType2D.Static;
+        rb.bodyType = RigidbodyType2D.Static;
         playerIsAlive = false;
-        Debug.Log("You atasdasd.");
         //die
         if (Input.GetKey("y"))
         {
             state = anim.Death;
-            Debug.Log("You dead.");
+            animator.SetInteger("state", (int)state);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //if (collision.gameObject.CompareTag("Enemy"))
-        //{
-        //    die();
-        //}
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            die();
+        }
     }
 
     private void animations()
