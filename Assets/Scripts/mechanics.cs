@@ -14,10 +14,15 @@ public class mechanics : MonoBehaviour
     private Animator animator;
     private BoxCollider2D bcol;
     private static bool superJump = true;
-    private enum anim { Idle, Jump, Run, Fall, Crouch, SuperJump, SuperJumpV, Death};
+    private enum anim { Idle, Jump, Run, Fall, Crouch, SuperJump, SuperJumpV};
     [SerializeField] private LayerMask jumpRange;
     [SerializeField] private bool playerIsAlive = true;
+    private bool facingRight = true;
     anim state;
+    private GameObject charObject;
+    private GameObject attackCollider;
+    private BoxCollider2D snap;
+
 
 
     // Start is called before the first frame update
@@ -27,28 +32,40 @@ public class mechanics : MonoBehaviour
         rbSprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         bcol = GetComponent<BoxCollider2D>();
+        charObject = GameObject.Find("CoolSnake");
+        attackCollider = charObject.transform.GetChild(0).gameObject;
+        snap = attackCollider.GetComponent<BoxCollider2D>();
+        snap.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
-    {   
+    {
+        if (!playerIsAlive)
+        {
+            return;
+        }
+        if (Input.GetKey("r"))
+        {
+            resetLevel();
+        }
         attack();
         crouch();
         run();
         animations();
-        resetLevel();
-        if (Input.GetKey("y"))
+        if (speed_X > 0f && !facingRight)
         {
-            die();
+            Flip();
+        }
+        else if (speed_X < 0f && facingRight)
+        {
+            Flip();
         }
     }
 
     private void resetLevel()
     {
-        if (Input.GetKey("r"))
-        {
-            Invoke("sceneLoad", 0.3f);
-        }
+        Invoke("sceneLoad", 0.3f);
     }
     private void sceneLoad()
     {
@@ -101,17 +118,7 @@ public class mechanics : MonoBehaviour
         }
     }
 
-    private void die() 
-    {
-        rb.bodyType = RigidbodyType2D.Static;
-        playerIsAlive = false;
-        //die
-        if (Input.GetKey("y"))
-        {
-            state = anim.Death;
-            animator.SetInteger("state", (int)state);
-        }
-    }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -134,15 +141,9 @@ public class mechanics : MonoBehaviour
         }
 
         //run
-        if (speed_X > 0f)
+        if (speed_X != 0f)
         {
             state = anim.Run;
-            rbSprite.flipX = false;
-        }
-        else if (speed_X < 0f)
-        {
-            state = anim.Run;
-            rbSprite.flipX = true;
         }
         else
         {
@@ -184,5 +185,26 @@ public class mechanics : MonoBehaviour
     private bool gcheck()
     {
         return Physics2D.BoxCast(bcol.bounds.center, bcol.bounds.size, 0f, Vector2.down, .1f, jumpRange);
+    }
+    private void die()
+    {
+        rb.bodyType = RigidbodyType2D.Static;
+        playerIsAlive = false;
+        animator.SetTrigger("death");
+    }
+
+    void activateCollider()
+    {
+        snap.enabled = true;
+    }
+
+    void deactivateCollider()
+    {
+        snap.enabled = false;
+    }
+    private void Flip()
+    {
+        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        facingRight = !facingRight;
     }
 }
