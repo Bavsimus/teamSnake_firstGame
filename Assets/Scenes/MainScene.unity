@@ -2050,7 +2050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jump: 5
-  speed: 7
+  speed: 4
   jumpSpeed: 1
   jumpRange:
     serializedVersion: 2
