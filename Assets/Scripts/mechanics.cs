@@ -14,7 +14,7 @@ public class mechanics : MonoBehaviour
     private Animator animator;
     private BoxCollider2D bcol;
     private static bool superJump = true;
-    private enum anim { Idle, Jump, Run, Fall, Crouch, SuperJump, SuperJumpV};
+    private enum anim { Idle, Jump, Run, Fall, Crouch, SuperJump, SuperJumpV };
     [SerializeField] private LayerMask jumpRange;
     [SerializeField] private bool playerIsAlive = true;
     private bool facingRight = true;
@@ -117,8 +117,6 @@ public class mechanics : MonoBehaviour
             }
         }
     }
-
-
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
