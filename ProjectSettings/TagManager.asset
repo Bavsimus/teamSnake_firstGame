@@ -43,3 +43,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Cloud
+    uniqueID: 246352405
+    locked: 0
