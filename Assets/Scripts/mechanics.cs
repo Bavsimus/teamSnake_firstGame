@@ -22,6 +22,7 @@ public class mechanics : MonoBehaviour
     private GameObject charObject;
     private GameObject attackCollider;
     private BoxCollider2D snap;
+    private EdgeCollider2D ecoll;
 
 
 
@@ -36,6 +37,7 @@ public class mechanics : MonoBehaviour
         attackCollider = charObject.transform.GetChild(0).gameObject;
         snap = attackCollider.GetComponent<BoxCollider2D>();
         snap.enabled = false;
+        ecoll= GetComponent<EdgeCollider2D>();
     }
 
     // Update is called once per frame
@@ -182,7 +184,7 @@ public class mechanics : MonoBehaviour
 
     private bool gcheck()
     {
-        return Physics2D.BoxCast(bcol.bounds.center, bcol.bounds.size, 0f, Vector2.down, .1f, jumpRange);
+        return Physics2D.BoxCast(ecoll.bounds.center, ecoll.bounds.size, 0f, Vector2.down, .1f, jumpRange);
     }
     private void die()
     {
