@@ -14,7 +14,7 @@ public class mechanics : MonoBehaviour
     private Animator animator;
     private BoxCollider2D bcol;
     private static bool superJump = true;
-    private enum anim { Idle, Jump, Run, Fall, Crouch, SuperJump, SuperJumpV };
+    private enum anim { Idle, Jump, Run, Fall, Crouch, SuperJump, SuperJumpV};
     [SerializeField] private LayerMask jumpRange;
     [SerializeField] private bool playerIsAlive = true;
     private bool facingRight = true;
@@ -23,6 +23,7 @@ public class mechanics : MonoBehaviour
     private GameObject attackCollider;
     private BoxCollider2D snap;
     private EdgeCollider2D ecoll;
+    private int health = 5;
 
 
 
@@ -124,7 +125,7 @@ public class mechanics : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            die();
+            hurt();
         }
     }
 
@@ -185,6 +186,19 @@ public class mechanics : MonoBehaviour
     private bool gcheck()
     {
         return Physics2D.BoxCast(ecoll.bounds.center, ecoll.bounds.size, 0f, Vector2.down, .1f, jumpRange);
+    }
+
+    private void hurt()
+    {
+        health--;
+        if (health == 0)
+        {
+            die();
+        }
+        else
+        {
+            animator.SetTrigger("hurt");
+        }
     }
     private void die()
     {
