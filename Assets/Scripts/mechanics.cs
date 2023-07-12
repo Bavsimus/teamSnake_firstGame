@@ -23,7 +23,8 @@ public class mechanics : MonoBehaviour
     private GameObject attackCollider;
     private BoxCollider2D snap;
     private EdgeCollider2D ecoll;
-    private int health = 5;
+    public int health = 4;
+    healtBarScript healtBarScript;
 
 
 
@@ -188,7 +189,7 @@ public class mechanics : MonoBehaviour
         return Physics2D.BoxCast(ecoll.bounds.center, ecoll.bounds.size, 0f, Vector2.down, .1f, jumpRange);
     }
 
-    private void hurt()
+    public void hurt()
     {
         health--;
         if (health == 0)
