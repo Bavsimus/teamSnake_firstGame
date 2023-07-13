@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -25,6 +26,8 @@ public class mechanics : MonoBehaviour
     private EdgeCollider2D ecoll;
     public int health = 4;
     healtBarScript healtBarScript;
+    [SerializeField] private AudioSource supjumpSFX;
+    [SerializeField] private AudioSource jumpSFX;
 
 
 
@@ -159,15 +162,18 @@ public class mechanics : MonoBehaviour
             {
                 if (Input.GetKey("a") || Input.GetKey("d"))
                 {
+                    //supjumpSFX.Play();
                     state = anim.SuperJump;
                 }
                 else
                 {
+                    //supjumpSFX.Play();
                     state = anim.SuperJumpV;
                 }
             }
             else
             {
+                //jumpSFX.Play();
                 state = anim.Jump;
             }
         }
