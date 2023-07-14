@@ -24,7 +24,7 @@ public class mechanics : MonoBehaviour
     private GameObject attackCollider;
     private BoxCollider2D snap;
     private EdgeCollider2D ecoll;
-    public int health = 4;
+    public int health = 5;
     healtBarScript healtBarScript;
     [SerializeField] private AudioSource supjumpSFX;
     [SerializeField] private AudioSource jumpSFX;
