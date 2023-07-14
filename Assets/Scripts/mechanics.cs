@@ -26,8 +26,9 @@ public class mechanics : MonoBehaviour
     private EdgeCollider2D ecoll;
     public int health = 5;
     healtBarScript healtBarScript;
-    [SerializeField] private AudioSource supjumpSFX;
-    [SerializeField] private AudioSource jumpSFX;
+    [SerializeField] private AudioClip supjumpSFX;
+    [SerializeField] private AudioClip jumpSFX;
+    [SerializeField] private AudioClip attackSFX;
 
 
 
@@ -115,11 +116,13 @@ public class mechanics : MonoBehaviour
             if (Input.GetKey("c"))
             {
                 superJump = true;
+                SoundFXManager.Instance.PlaySoundFXClip(supjumpSFX, transform, 1f);
                 rb.velocity = new Vector2(rb.velocity.x, jump * 2);
             }
             else
             {
                 superJump = false;
+                SoundFXManager.Instance.PlaySoundFXClip(jumpSFX, transform, 1f);
                 rb.velocity = new Vector2(rb.velocity.x, jump);
             }
         }
@@ -138,6 +141,7 @@ public class mechanics : MonoBehaviour
         //attack
         if (Input.GetKeyUp("q"))
         {
+            SoundFXManager.Instance.PlaySoundFXClip(attackSFX, transform, 1f);
             animator.SetBool("attack", true);
         }
         else
@@ -162,18 +166,15 @@ public class mechanics : MonoBehaviour
             {
                 if (Input.GetKey("a") || Input.GetKey("d"))
                 {
-                    //supjumpSFX.Play();
                     state = anim.SuperJump;
                 }
                 else
                 {
-                    //supjumpSFX.Play();
                     state = anim.SuperJumpV;
                 }
             }
             else
             {
-                //jumpSFX.Play();
                 state = anim.Jump;
             }
         }
