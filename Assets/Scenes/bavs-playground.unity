@@ -484,7 +484,7 @@ GameObject:
   - component: {fileID: 538158488}
   - component: {fileID: 538158487}
   - component: {fileID: 538158489}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Vents_12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -614,7 +614,7 @@ GameObject:
   - component: {fileID: 638839807}
   - component: {fileID: 638839806}
   - component: {fileID: 638839808}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Vents_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -744,7 +744,7 @@ GameObject:
   - component: {fileID: 779270576}
   - component: {fileID: 779270575}
   - component: {fileID: 779270577}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Vents_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1030,7 +1030,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1471055887}
   - component: {fileID: 1471055886}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1178,9 +1178,10 @@ GameObject:
   - component: {fileID: 2083588260}
   - component: {fileID: 2083588259}
   - component: {fileID: 2083588262}
+  - component: {fileID: 2083588263}
   m_Layer: 0
   m_Name: Gazoz
-  m_TagString: Untagged
+  m_TagString: Gazoz
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1318,3 +1319,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.19558144, y: 0.32234854}
   m_EdgeRadius: 0
+--- !u!114 &2083588263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083588258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d431b8c7c3c660e408492907a84e1e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GazozNum: 0
