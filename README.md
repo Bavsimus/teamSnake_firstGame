@@ -3,8 +3,9 @@
 It's our first game project as teamSnake.
 
 ### Status
-- Developing:✅
+- Developing:❌
 - Done:❌
+- Paused Project:✅
 
 ### Technologies
  
